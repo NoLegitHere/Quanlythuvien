@@ -19,9 +19,9 @@ Sau khi tải về mở Command Prompt và đổi sang thư mục
 Sẽ thấy 2 thư mục LMS Angular và LMS Server. Trước hết hãy đổi sang thư mục LMS Angular
 ```bash
   cd "LMS Angular"
-  npm start
+  ng build
 ```
-và chạy npm install(nhớ chọn thêm vào môi trường trong Windows khi cài đặt). Sau khi chạy xong thì ta chạy npm start để khởi động web.
+và build trang web và di chuyển nó sang web server
 Tiếp theo ta chuyển sang thư mục LMS Server
 ```bash
   cd "LMS Server"
