@@ -23,7 +23,7 @@ export const navItems: INavData[] = [
 
 export const adminNavItems: INavData[] = [
   {
-    name: 'Dashboard',
+    name: 'Bảng điều khiển',
     url: '/dashboard',
     iconComponent: { name: 'cil-speedometer' },
     badge: {
@@ -32,7 +32,7 @@ export const adminNavItems: INavData[] = [
     },
   },
   {
-    name: 'Books',
+    name: 'Sách',
     url: '/book/books',
     iconComponent: { name: 'cil-spreadsheet' },
     badge: {
@@ -41,7 +41,7 @@ export const adminNavItems: INavData[] = [
     },
   },
   {
-    name: 'IssueBooks',
+    name: 'Sách phát hành',
     url: '/issues/issuebooks',
     iconComponent: { name: 'cil-people' },
 
@@ -51,7 +51,7 @@ export const adminNavItems: INavData[] = [
     },
   },
   {
-    name: 'Admins',
+    name: 'Trang quản lý',
     url: '/admin/admins',
     iconComponent: { name: 'cil-user' },
     badge: {
