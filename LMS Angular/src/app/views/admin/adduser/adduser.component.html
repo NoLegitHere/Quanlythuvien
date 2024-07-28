@@ -1,0 +1,47 @@
+<c-col xs="12">
+  <c-card class="mb-4">
+        <c-card-header>
+          <strong>Thêm tài khoản người dùng</strong>
+        </c-card-header>
+    <c-card-body>
+  <form cForm (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <div class="mb-3">
+    <label cLabel for="exampleFormControlInput1">Tên</label>
+    <input cFormControl id="first name" ngModel name="first_name" />
+  </div>
+  <div class="mb-3">
+    <label cLabel for="exampleFormControlInput1">Họ</label>
+    <input cFormControl id="last name" ngModel name="last_name" />
+  </div>
+  <div class="mb-3">
+    <label cLabel for="exampleFormControlInput1">Email</label>
+    <input cFormControl id="email" ngModel name="email" />
+  </div>
+  <div class="mb-3">
+    <label cLabel for="exampleFormControlInput1">Mật khẩu</label>
+    <input cFormControl id="password" ngModel name="password" />
+  </div>
+  <div class="mb-3">
+    <label cLabel for="exampleFormControlInput1">Số điện thoại</label>
+    <input cFormControl id="phone_no" ngModel name="phone_no" />
+  </div>
+  <div class="mb-3">
+    <label cLabel for="exampleFormControlInput1">Địa chỉ</label>
+    <input cFormControl id="address" ngModel name="address" />
+  </div>
+  <div class="mb-3">
+    <label cLabel for="exampleFormControlInput1">Vai trò</label>
+    <input type="number" cFormControl id="roles" ngModel name="roles" />
+  </div>
+  <div class="mb-3">
+    <label cLabel for="exampleFormControlInput1">Tham gia ngày</label>
+    <input type="date" cFormControl id="joined_date" ngModel name="joined_date" />
+  </div>
+
+  <div class="d-grid gap-2 col-1 mx-auto">
+    <button type="submit" class="btn btn-success">Xác nhận</button>
+  </div>
+</form>
+</c-card-body>
+</c-card>
+</c-col>

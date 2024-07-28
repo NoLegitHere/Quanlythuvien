@@ -1,0 +1,114 @@
+<c-row>
+  <c-col xs>
+    <c-card class="mb-4">
+      <c-card-header>Sách phát hành</c-card-header>
+      <c-card-body>
+        <table class="table table-striped">
+          <thead class="table-dark">
+            <tr>
+              <th class="text-center">Tên sách</th>
+              <th class="text-center">Tên người dùng</th>
+              <th class="text-center">Ngày phát hành</th>
+              <th class="text-center">Ngày đáo hạn</th>
+              <th class="text-center">Ngày trả lại</th>
+              <th class="text-center">Trạng thái</th>
+              <th class="text-center">Số ngày</th>
+              <th class="text-center">Số tiền phạt</th>
+              <th class="text-center"></th>
+              <th class="text-center"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let issuebook of issuebooks; index as i">
+              <td>
+                <div class="text-center">
+                  {{ issuebook.book_id.title }}
+                </div>
+              </td>
+              <td>
+                <div class="text-center">
+                  {{ issuebook.fullname }}
+                </div>
+              </td>
+              <td>
+                <div class="text-center">{{ issuebook.issue_date | date }}</div>
+              </td>
+              <td>
+                <div class="text-center">{{ issuebook.due_date | date }}</div>
+              </td>
+
+              <td class="text-center">
+                <div *ngIf="issuebook.return_date != 'nil'; else elseBlock">
+                  {{ issuebook.return_date | date }}
+                </div>
+                <ng-template #elseBlock>
+                  {{ issuebook.return_date }}
+                </ng-template>
+              </td>
+              <td>
+                <div class="text-center">{{ issuebook.status }}</div>
+              </td>
+              <td class="text-center">
+                <div *ngIf="issuebook.no_of_days !== 'nil'; else elseBlock">
+                  {{ issuebook.no_of_days + " " + "days" }}
+                </div>
+                <ng-template #elseBlock>
+                  {{ issuebook.no_of_days }}
+                </ng-template>
+              </td>
+              <td class="text-center">
+                <div *ngIf="issuebook.fine_amount !== 'nil'; else elseBlock">
+                  {{ "Rs." + issuebook.fine_amount }}
+                </div>
+                <ng-template #elseBlock>
+                  {{ issuebook.fine_amount }}
+                </ng-template>
+              </td>
+
+              <!-- <td>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  *ngIf="currentUserRole === 'librarian'"
+                  [routerLink]="['/issues/editissue', issuebook._id]"
+                >
+                  Edit
+                </button>
+              </td> -->
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-warning"
+                  *ngIf="currentUserRole == 'librarian'"
+                  [routerLink]="['/issues/updateissue', issuebook._id]"
+                >
+                  Update
+                </button>
+              </td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  *ngIf="currentUserRole == 'librarian'"
+                  (click)="deleteissue(issuebook._id)"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="d-grid gap-2 col-1 mx-auto">
+          <button
+            type="button"
+            class="btn btn-info"
+            *ngIf="currentUserRole == 'librarian'"
+            [routerLink]="['/issues/addissue']"
+          >
+            Add
+          </button>
+        </div>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
